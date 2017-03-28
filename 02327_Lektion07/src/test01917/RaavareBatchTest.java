@@ -27,7 +27,7 @@ public class RaavareBatchTest {
 			rb.createRaavareBatch(new RaavareBatchDTO(123,4,100));
 			System.out.println(rb.getRaavareBatch(123));
 			System.out.println(rb.getRaavareBatchList());
-			rb.updateRaavareBatch(new RaavareBatchDTO(123,5,100));
+			rb.updateRaavareBatch(new RaavareBatchDTO(123,5,2320));
 			System.out.println(rb.getRaavareBatchList(5));
 			
 		} catch (DALException e) {
