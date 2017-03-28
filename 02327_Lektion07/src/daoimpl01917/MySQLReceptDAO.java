@@ -77,13 +77,49 @@ public class MySQLReceptDAO implements ReceptDAO {
 
 	@Override
 	public void createRecept(ReceptDTO recept) throws DALException {
-		// TODO Auto-generated method stub
+		Connection c = Connector.getConnection();
+		PreparedStatement ps = null;
+		try {
+			ps = c.prepareStatement("CALL createRecept ( ?, ? );");
+
+			ps.setInt(1, recept.getReceptId());
+			ps.setString(2, recept.getReceptNavn());
+		} catch (SQLException e) {
+			System.out.println("Error: " + e.getMessage());
+			System.out.println("No changes were made. \n");
+		} finally {
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+				}
+			}
+		}
 
 	}
 
 	@Override
 	public void updateRecept(ReceptDTO recept) throws DALException {
-		// TODO Auto-generated method stub
+		Connection c = Connector.getConnection();
+		PreparedStatement ps = null;
+		try {
+			ps = c.prepareStatement("CALL updateRecept( ?,? );");
+
+			ps.setInt(1, recept.getReceptId());
+			ps.setString(2, recept.getReceptNavn());
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Error: " + e.getMessage());
+			System.out.println("No changes were made. \n");
+		} finally {
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+
+				}
+			}
+		}
 
 	}
 
