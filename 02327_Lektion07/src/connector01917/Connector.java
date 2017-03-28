@@ -68,5 +68,8 @@ public class Connector
 		catch (SQLException e) { throw new DALException(e); }
 	}
 	
+	public static Connection getConnection(){
+		return conn;
+	}
 	
 }
