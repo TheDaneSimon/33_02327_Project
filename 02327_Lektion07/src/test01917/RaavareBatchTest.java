@@ -6,6 +6,7 @@ import connector01917.Connector;
 import daoimpl01917.MySQLOperatoerDAO;
 import daoimpl01917.MySQLRaavareBatchDAO;
 import daointerfaces01917.DALException;
+import dto01917.RaavareBatchDTO;
 
 public class RaavareBatchTest {
 	public static void main(String[] args) {
@@ -22,8 +23,12 @@ public class RaavareBatchTest {
 		}
 		MySQLRaavareBatchDAO rb = new MySQLRaavareBatchDAO();
 		try {
-			System.out.println(rb.getRaavareBatch(5));
+			
+			rb.createRaavareBatch(new RaavareBatchDTO(123,4,100));
+			System.out.println(rb.getRaavareBatch(123));
 			System.out.println(rb.getRaavareBatchList());
+			rb.updateRaavareBatch(new RaavareBatchDTO(123,5,100));
+			System.out.println(rb.getRaavareBatchList(5));
 			
 		} catch (DALException e) {
 			// TODO Auto-generated catch block

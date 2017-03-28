@@ -32,7 +32,7 @@ public class MySQLRaavareBatchDAO implements RaavareBatchDAO {
 
 		try {
 			if (!rs.first())
-				throw new DALException("Operatoeren " + rbId + " findes ikke");
+				throw new DALException("RaavareBatchen med id: " + rbId + " findes ikke");
 			return new RaavareBatchDTO(rs.getInt("rb_id"), rs.getInt("raavare_id"), rs.getDouble("maengde"));
 		} catch (SQLException e) {
 			throw new DALException(e);
@@ -99,7 +99,7 @@ public class MySQLRaavareBatchDAO implements RaavareBatchDAO {
 
 		try {
 			if (!rs.first())
-				throw new DALException("Operatoeren " + raavareId + " findes ikke");
+				throw new DALException("RaavareBatchen med id: " + raavareId + " findes ikke");
 			while (rs.next()) {
 				raavareList
 						.add(new RaavareBatchDTO(rs.getInt("rb_id"), rs.getInt("raavare_id"), rs.getDouble("maengde")));
@@ -120,13 +120,57 @@ public class MySQLRaavareBatchDAO implements RaavareBatchDAO {
 
 	@Override
 	public void createRaavareBatch(RaavareBatchDTO raavarebatch) throws DALException {
-		// TODO Auto-generated method stub
+		Connection conn = Connector.getConnection();
+		PreparedStatement ps = null;
+		try {
+			ps = conn
+					.prepareStatement("CALL createRaavareBatch( ?,?,? );");
+
+			ps.setInt(1, raavarebatch.getRbId());
+			ps.setInt(2, raavarebatch.getRaavareId());
+			ps.setDouble(3, raavarebatch.getMaengde());
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println("Error:" + e.getMessage());
+			System.out.println("No changes where made.\n");
+		} finally {
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+				}
+			}
+
+		}
 
 	}
 
 	@Override
 	public void updateRaavareBatch(RaavareBatchDTO raavarebatch) throws DALException {
-		// TODO Auto-generated method stub
+		Connection conn = Connector.getConnection();
+		PreparedStatement ps = null;
+		try {
+			ps = conn
+					.prepareStatement("CALL updateRaavareBatch( ?,?,? );");
+
+			ps.setInt(1, raavarebatch.getRbId());
+			ps.setInt(2, raavarebatch.getRaavareId());
+			ps.setDouble(3, raavarebatch.getMaengde());
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println("Error:" + e.getMessage());
+			System.out.println("No changes where made.\n");
+		} finally {
+			if (ps != null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+				}
+			}
+
+		}
 
 	}
 
