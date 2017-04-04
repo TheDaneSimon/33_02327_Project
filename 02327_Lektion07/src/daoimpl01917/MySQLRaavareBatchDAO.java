@@ -123,8 +123,7 @@ public class MySQLRaavareBatchDAO implements RaavareBatchDAO {
 		Connection conn = Connector.getConnection();
 		PreparedStatement ps = null;
 		try {
-			ps = conn
-					.prepareStatement("CALL createRaavareBatch( ?,?,? );");
+			ps = conn.prepareStatement("CALL createRaavareBatch( ?,?,? );");
 
 			ps.setInt(1, raavarebatch.getRbId());
 			ps.setInt(2, raavarebatch.getRaavareId());

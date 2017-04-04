@@ -29,9 +29,9 @@ public class MySQLReceptDAO implements ReceptDAO {
 			System.out.println("Error: " + e.getMessage());
 		}
 		try {
-			if (rs.first())
+			if (!rs.first())
 				throw new DALException("Recepten " + receptId + " findes ikke");
-			return new ReceptDTO(rs.getInt("receptId"), rs.getString("receptNavn"));
+			return new ReceptDTO(rs.getInt("recept_id"), rs.getString("recept_navn"));
 		} catch (SQLException e) {
 			throw new DALException(e);
 		} finally {
@@ -80,10 +80,11 @@ public class MySQLReceptDAO implements ReceptDAO {
 		Connection c = Connector.getConnection();
 		PreparedStatement ps = null;
 		try {
-			ps = c.prepareStatement("CALL createRecept ( ?, ? );");
+			ps = c.prepareStatement("CALL createRecept( ?,? );");
 
 			ps.setInt(1, recept.getReceptId());
 			ps.setString(2, recept.getReceptNavn());
+			ps.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Error: " + e.getMessage());
 			System.out.println("No changes were made. \n");
