@@ -1,5 +1,6 @@
 package daoimpl01917;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ public class MySQLReceptKompDAO implements ReceptKompDAO {
 
 	@Override
 	public ReceptKompDTO getReceptKomp(int receptId, int raavareId) throws DALException {
-		java.sql.PreparedStatement ps = null;
+		PreparedStatement ps = null;
 
 		try {
 			ps = Connector.getConnection().prepareStatement("call getReceptKomp(?,?);");
@@ -49,7 +50,7 @@ public class MySQLReceptKompDAO implements ReceptKompDAO {
 
 	@Override
 	public List<ReceptKompDTO> getReceptKompList(int receptId) throws DALException {
-		java.sql.PreparedStatement ps = null;
+		PreparedStatement ps = null;
 
 		try {
 			ps = Connector.getConnection().prepareStatement("call getReceptKompListByID(?);");
@@ -86,7 +87,7 @@ public class MySQLReceptKompDAO implements ReceptKompDAO {
 
 	@Override
 	public List<ReceptKompDTO> getReceptKompList() throws DALException {
-		java.sql.PreparedStatement ps = null;
+		PreparedStatement ps = null;
 
 		try {
 			ps = Connector.getConnection().prepareStatement("SELECT * FROM getReceptKompList;");
@@ -122,7 +123,7 @@ public class MySQLReceptKompDAO implements ReceptKompDAO {
 
 	@Override
 	public void createReceptKomp(ReceptKompDTO receptkomponent) throws DALException {
-		java.sql.PreparedStatement ps = null;
+		PreparedStatement ps = null;
 
 		try {
 			ps = Connector.getConnection().prepareStatement("call createReceptKomp(?,?,?,?);");
@@ -147,7 +148,7 @@ public class MySQLReceptKompDAO implements ReceptKompDAO {
 
 	@Override
 	public void updateReceptKomp(ReceptKompDTO receptkomponent) throws DALException {
-		java.sql.PreparedStatement ps = null;
+		PreparedStatement ps = null;
 
 		try {
 			ps = Connector.getConnection().prepareStatement("call updateReceptKomp(?,?,?,?);");
