@@ -10,6 +10,6 @@ public interface RolleDAO {
 	public List<RolleDTO> getRolleList() throws DALException;
 	public List<RolleDTO> getOprRolleList(String rolle) throws DALException;
 	public void createRolle(RolleDTO rolle) throws DALException;
-	public void updateRolle(RolleDTO rolle) throws DALException;
+	public void updateRolle(RolleDTO rolle, RolleDTO nyRolle) throws DALException;
 	
 }
