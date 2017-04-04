@@ -3,10 +3,10 @@ package test01917;
 import java.sql.SQLException;
 
 import connector01917.Connector;
-import daoimpl01917.MySQLProduktBatchKompDAO;
+
 import daoimpl01917.MySQLReceptKompDAO;
 import daointerfaces01917.DALException;
-import dto01917.ProduktBatchKompDTO;
+
 import dto01917.ReceptKompDTO;
 
 public class ReceptKompTest {
