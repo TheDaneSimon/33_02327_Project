@@ -57,7 +57,7 @@ public class MySQLProduktBatchDAO implements ProduktBatchDAO{
 		ResultSet rs = null;
 
 		try {
-			ps = conn.prepareStatement("SELECT * FROM getProduktBatchList;");
+			ps = conn.prepareStatement("SELECT * FROM getproduktbatchList;");
 			rs = ps.executeQuery();
 		} catch (SQLException e) {
 			System.out.println("Error:" + e.getMessage());
