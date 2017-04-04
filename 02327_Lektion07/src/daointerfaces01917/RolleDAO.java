@@ -6,10 +6,10 @@ import dto01917.RolleDTO;
 
 public interface RolleDAO {
 
-	public List<RolleDTO> getOprRolleList(int opr_id);
-	public List<RolleDTO> getRolleList();
-	public List<RolleDTO> getOprRolleList(String rolle);
-	public void createRolle(RolleDTO rolle);
-	public void updateRolle(RolleDTO rolle);
+	public List<RolleDTO> getOprRolleList(int opr_id) throws DALException;
+	public List<RolleDTO> getRolleList() throws DALException;
+	public List<RolleDTO> getOprRolleList(String rolle) throws DALException;
+	public void createRolle(RolleDTO rolle) throws DALException;
+	public void updateRolle(RolleDTO rolle) throws DALException;
 	
 }
