@@ -10,7 +10,6 @@ import connector01917.Connector;
 import daointerfaces01917.DALException;
 import daointerfaces01917.ProduktBatchDAO;
 import dto01917.ProduktBatchDTO;
-import dto01917.RaavareBatchDTO;
 
 public class MySQLProduktBatchDAO implements ProduktBatchDAO{
 	
@@ -123,7 +122,6 @@ public class MySQLProduktBatchDAO implements ProduktBatchDAO{
 			ps.setInt(2, produktbatch.getStatus());
 			ps.setDouble(3, produktbatch.getReceptId());
 			ps.executeUpdate();
-
 		} catch (SQLException e) {
 			System.out.println("Error:" + e.getMessage());
 			System.out.println("No changes where made.\n");
@@ -134,10 +132,6 @@ public class MySQLProduktBatchDAO implements ProduktBatchDAO{
 				} catch (SQLException e) {
 				}
 			}
-
 		}
-	
-
 	}
-
 }
