@@ -59,11 +59,14 @@ public class MySQLRolleDAO implements RolleDAO{
 
 			ResultSet rs = ps.executeQuery();
 			
-//			if (!rs.first()) throw new DALException("Ingen elementer in Rolle tabel");
-
-//			rs.next();
-
 			List<RolleDTO> rolleList = new ArrayList<RolleDTO>();
+			
+			rolleList.add(
+					new RolleDTO(
+							rs.getInt("opr_id"),
+							rs.getString("rolle")));
+			
+			if (!rs.first()) throw new DALException("Ingen elementer in Rolle tabel");
 
 			while(rs.next()){
 
