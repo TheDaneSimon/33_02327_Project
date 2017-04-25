@@ -25,7 +25,7 @@ public class ReceptKompTest {
 		
 		MySQLReceptKompDAO rk = new MySQLReceptKompDAO();
 		
-		System.out.println("Get ReceptKomp 1,2");
+		System.out.println("Get ReceptKomp 1,4");
 		try { 
 			System.out.println(rk.getReceptKomp(1, 4)); 
 		}
@@ -59,16 +59,17 @@ public class ReceptKompTest {
 			System.out.println(e.getMessage()); 
 		}
 		
-		System.out.println("Update af ReceptKomp med pb_id 4 og rb_id 2");
+		System.out.println("Update af ReceptKomp med pb_id 1 og rb_id 2");
 		try {
-			System.out.println(rk.getReceptKomp(3, 2));
-			rk.updateReceptKomp(new ReceptKompDTO(3, 2, 0.4, 1000.4));
+			System.out.println(rk.getReceptKomp(1, 2));
+			rk.updateReceptKomp(new ReceptKompDTO(1, 2, 0.4, 1000.4));
 			
-			System.out.println(rk.getReceptKomp(3, 2));
+			System.out.println(rk.getReceptKomp(1, 2));
 		}
 		catch (DALException e) { 
 			System.out.println(e.getMessage()); 
 		}
+		
 		
 	}
 

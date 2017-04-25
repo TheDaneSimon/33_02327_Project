@@ -27,8 +27,6 @@ public class MySQLReceptKompDAO implements ReceptKompDAO {
 
 			if (!rs.first()) throw new DALException("ReceptKomp: " + receptId + " + " + raavareId + " findes ikke");
 
-			rs.next();
-
 			return 
 					new ReceptKompDTO(
 							rs.getInt("recept_id"), 
@@ -163,12 +161,15 @@ public class MySQLReceptKompDAO implements ReceptKompDAO {
 			ps.executeQuery();
 
 		}
-		catch (SQLException e) {throw new DALException(e); 
+		catch (SQLException e) {
+			e.printStackTrace();
+			throw new DALException(e); 
 		}finally{
 			try{
 				ps.close();
 			}catch(Exception e){
 				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}
