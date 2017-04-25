@@ -55,7 +55,7 @@ public class MySQLRolleDAO implements RolleDAO{
 		PreparedStatement ps = null;
 
 		try {
-			ps = Connector.getConnection().prepareStatement("call getRolleList();");
+			ps = Connector.getConnection().prepareStatement("SELECT * FROM getRolleList;");
 
 			ResultSet rs = ps.executeQuery();
 
