@@ -24,9 +24,9 @@ public class MySQLRolleDAO implements RolleDAO{
 
 			ResultSet rs = ps.executeQuery();
 
-			if (!rs.first()) throw new DALException("Rolle: " + opr_id + " findes ikke");
+//			if (!rs.first()) throw new DALException("Rolle: " + opr_id + " findes ikke");
 
-			rs.next();
+//			rs.next();
 
 			List<RolleDTO> rolleList = new ArrayList<RolleDTO>();
 
@@ -58,10 +58,10 @@ public class MySQLRolleDAO implements RolleDAO{
 			ps = Connector.getConnection().prepareStatement("SELECT * FROM getRolleList;");
 
 			ResultSet rs = ps.executeQuery();
+			
+//			if (!rs.first()) throw new DALException("Ingen elementer in Rolle tabel");
 
-			if (!rs.first()) throw new DALException("Ingen elementer in Rolle tabel");
-
-			rs.next();
+//			rs.next();
 
 			List<RolleDTO> rolleList = new ArrayList<RolleDTO>();
 
@@ -97,9 +97,9 @@ public class MySQLRolleDAO implements RolleDAO{
 
 			ResultSet rs = ps.executeQuery();
 
-			if (!rs.first()) throw new DALException("Rolle: " + rolle + " findes ikke");
+//			if (!rs.first()) throw new DALException("Rolle: " + rolle + " findes ikke");
 
-			rs.next();
+//			rs.next();
 
 			List<RolleDTO> rolleList = new ArrayList<RolleDTO>();
 
