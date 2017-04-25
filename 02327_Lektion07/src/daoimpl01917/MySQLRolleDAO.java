@@ -12,7 +12,7 @@ import daointerfaces01917.RolleDAO;
 import dto01917.RolleDTO;
 
 public class MySQLRolleDAO implements RolleDAO{
-	
+
 	@Override
 	public List<RolleDTO> getOprRolleList(int opr_id) throws DALException {
 		PreparedStatement ps = null;
@@ -24,19 +24,16 @@ public class MySQLRolleDAO implements RolleDAO{
 
 			ResultSet rs = ps.executeQuery();
 
-//			if (!rs.first()) throw new DALException("Rolle: " + opr_id + " findes ikke");
-
-//			rs.next();
-
 			List<RolleDTO> rolleList = new ArrayList<RolleDTO>();
 
-			while(rs.next()){
+			do{
 
 				rolleList.add(
 						new RolleDTO(
 								rs.getInt("opr_id"),
 								rs.getString("rolle")));
-			}
+			}while(rs.next());
+
 			return rolleList;
 		}
 		catch (SQLException e) {throw new DALException(e); 
@@ -58,9 +55,9 @@ public class MySQLRolleDAO implements RolleDAO{
 			ps = Connector.getConnection().prepareStatement("SELECT * FROM getRolleList;");
 
 			ResultSet rs = ps.executeQuery();
-			
+
 			List<RolleDTO> rolleList = new ArrayList<RolleDTO>();
-			
+
 			if (!rs.first()) throw new DALException("Ingen elementer in Rolle tabel");
 
 			do {
@@ -68,8 +65,8 @@ public class MySQLRolleDAO implements RolleDAO{
 						new RolleDTO(
 								rs.getInt("opr_id"),
 								rs.getString("rolle")));
-			}
-			while(rs.next()) ;
+			}while(rs.next());
+
 			return rolleList;
 		}
 		catch (SQLException e) {throw new DALException(e); 
@@ -95,19 +92,20 @@ public class MySQLRolleDAO implements RolleDAO{
 
 			ResultSet rs = ps.executeQuery();
 
-//			if (!rs.first()) throw new DALException("Rolle: " + rolle + " findes ikke");
+			//			if (!rs.first()) throw new DALException("Rolle: " + rolle + " findes ikke");
 
-//			rs.next();
+			//			rs.next();
 
 			List<RolleDTO> rolleList = new ArrayList<RolleDTO>();
 
-			while(rs.next()){
+			do{
 
 				rolleList.add(
 						new RolleDTO(
 								rs.getInt("opr_id"),
 								rs.getString("rolle")));
-			}
+			}while(rs.next());
+				
 			return rolleList;
 		}
 		catch (SQLException e) {throw new DALException(e); 
