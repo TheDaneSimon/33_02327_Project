@@ -23,6 +23,8 @@ public class MySQLRolleDAO implements RolleDAO{
 			ps.setInt(1, opr_id);
 
 			ResultSet rs = ps.executeQuery();
+			
+			if (!rs.first()) throw new DALException("Ingen elementer in Rolle tabel");
 
 			List<RolleDTO> rolleList = new ArrayList<RolleDTO>();
 
@@ -56,9 +58,9 @@ public class MySQLRolleDAO implements RolleDAO{
 
 			ResultSet rs = ps.executeQuery();
 
-			List<RolleDTO> rolleList = new ArrayList<RolleDTO>();
-
 			if (!rs.first()) throw new DALException("Ingen elementer in Rolle tabel");
+			
+			List<RolleDTO> rolleList = new ArrayList<RolleDTO>();
 
 			do {
 				rolleList.add(
@@ -91,10 +93,8 @@ public class MySQLRolleDAO implements RolleDAO{
 			ps.setString(1, rolle);
 
 			ResultSet rs = ps.executeQuery();
-
-			//			if (!rs.first()) throw new DALException("Rolle: " + rolle + " findes ikke");
-
-			//			rs.next();
+			
+			if (!rs.first()) throw new DALException("Ingen elementer in Rolle tabel");
 
 			List<RolleDTO> rolleList = new ArrayList<RolleDTO>();
 
