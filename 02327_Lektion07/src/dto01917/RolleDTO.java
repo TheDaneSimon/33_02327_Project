@@ -25,4 +25,8 @@ public class RolleDTO {
 	public void setRolle(String newRolle){
 		rolle = newRolle;
 	}
+	
+	public String toString(){
+		return opr_id + "\t" + rolle;
+	}
 }

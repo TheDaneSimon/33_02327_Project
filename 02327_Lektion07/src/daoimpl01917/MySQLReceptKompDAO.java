@@ -63,7 +63,7 @@ public class MySQLReceptKompDAO implements ReceptKompDAO {
 
 			List<ReceptKompDTO> receptkompList = new ArrayList<ReceptKompDTO>();
 
-			while(rs.next()){
+			do{
 
 				receptkompList.add(
 						new ReceptKompDTO(
@@ -71,7 +71,8 @@ public class MySQLReceptKompDAO implements ReceptKompDAO {
 								rs.getInt("raavare_id"), 
 								rs.getDouble("nom_netto"), 
 								rs.getDouble("tolerance")));
-			}
+			}while(rs.next());
+			
 			return receptkompList;
 
 		}
@@ -98,7 +99,7 @@ public class MySQLReceptKompDAO implements ReceptKompDAO {
 
 			List<ReceptKompDTO> receptkompList = new ArrayList<ReceptKompDTO>();
 
-			while(rs.next()){
+			do{
 
 				receptkompList.add(
 						new ReceptKompDTO(
@@ -106,7 +107,8 @@ public class MySQLReceptKompDAO implements ReceptKompDAO {
 								rs.getInt("raavare_id"), 
 								rs.getDouble("nom_netto"), 
 								rs.getDouble("tolerance")));
-			}
+			}while(rs.next());
+			
 			return receptkompList;
 
 		}

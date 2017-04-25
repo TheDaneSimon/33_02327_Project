@@ -12,7 +12,7 @@ import daointerfaces01917.RolleDAO;
 import dto01917.RolleDTO;
 
 public class MySQLRolleDAO implements RolleDAO{
-	
+
 	@Override
 	public List<RolleDTO> getOprRolleList(int opr_id) throws DALException {
 		PreparedStatement ps = null;
@@ -23,20 +23,19 @@ public class MySQLRolleDAO implements RolleDAO{
 			ps.setInt(1, opr_id);
 
 			ResultSet rs = ps.executeQuery();
-
-			if (!rs.first()) throw new DALException("Rolle: " + opr_id + " findes ikke");
-
-			rs.next();
+			
+			if (!rs.first()) throw new DALException("Ingen elementer in Rolle tabel");
 
 			List<RolleDTO> rolleList = new ArrayList<RolleDTO>();
 
-			while(rs.next()){
+			do{
 
 				rolleList.add(
 						new RolleDTO(
 								rs.getInt("opr_id"),
 								rs.getString("rolle")));
-			}
+			}while(rs.next());
+
 			return rolleList;
 		}
 		catch (SQLException e) {throw new DALException(e); 
@@ -55,23 +54,21 @@ public class MySQLRolleDAO implements RolleDAO{
 		PreparedStatement ps = null;
 
 		try {
-			ps = Connector.getConnection().prepareStatement("call getRolleList();");
+			ps = Connector.getConnection().prepareStatement("SELECT * FROM getRolleList;");
 
 			ResultSet rs = ps.executeQuery();
 
 			if (!rs.first()) throw new DALException("Ingen elementer in Rolle tabel");
-
-			rs.next();
-
+			
 			List<RolleDTO> rolleList = new ArrayList<RolleDTO>();
 
-			while(rs.next()){
-
+			do {
 				rolleList.add(
 						new RolleDTO(
 								rs.getInt("opr_id"),
 								rs.getString("rolle")));
-			}
+			}while(rs.next());
+
 			return rolleList;
 		}
 		catch (SQLException e) {throw new DALException(e); 
@@ -96,20 +93,19 @@ public class MySQLRolleDAO implements RolleDAO{
 			ps.setString(1, rolle);
 
 			ResultSet rs = ps.executeQuery();
-
-			if (!rs.first()) throw new DALException("Rolle: " + rolle + " findes ikke");
-
-			rs.next();
+			
+			if (!rs.first()) throw new DALException("Ingen elementer in Rolle tabel");
 
 			List<RolleDTO> rolleList = new ArrayList<RolleDTO>();
 
-			while(rs.next()){
+			do{
 
 				rolleList.add(
 						new RolleDTO(
 								rs.getInt("opr_id"),
 								rs.getString("rolle")));
-			}
+			}while(rs.next());
+				
 			return rolleList;
 		}
 		catch (SQLException e) {throw new DALException(e); 
