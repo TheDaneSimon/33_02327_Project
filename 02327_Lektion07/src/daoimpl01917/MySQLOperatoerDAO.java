@@ -103,7 +103,7 @@ public class MySQLOperatoerDAO implements OperatoerDAO {
 		ResultSet rs = null;
 
 		try {
-			ps = c.prepareStatement("SELECT * FROM operatoer;");
+			ps = c.prepareStatement("SELECT * FROM operatoerlist;");
 			rs = ps.executeQuery();
 		} catch (SQLException e) {
 			System.out.println("Error: " + e.getMessage());
