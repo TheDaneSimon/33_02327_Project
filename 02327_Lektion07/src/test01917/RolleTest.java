@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import connector01917.Connector;
 import daoimpl01917.MySQLRolleDAO;
 import daointerfaces01917.DALException;
-import dto01917.RaavareBatchDTO;
 import dto01917.RolleDTO;
 
 public class RolleTest {
