@@ -26,8 +26,8 @@ public class RolleTest {
 
 		try {
 			rolle.createRolle(new RolleDTO(1, "Admin"));
-			rolle.createRolle(new RolleDTO(1, "Admin"));
-			rolle.createRolle(new RolleDTO(1, "JK"));
+			//rolle.createRolle(new RolleDTO(1, "Admin"));
+			//rolle.createRolle(new RolleDTO(1, "JK"));
 			rolle.createRolle(new RolleDTO(2, "Pharmacist"));
 			rolle.createRolle(new RolleDTO(1, "Operator"));
 			System.out.println("Testing getRolleList:");
